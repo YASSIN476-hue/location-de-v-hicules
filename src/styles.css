@@ -1,0 +1,42 @@
+/* styles.css */
+.image-uniform {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Pagination */
+.pagination .page-item {
+  margin: 0 5px; /* Ajoute de l'espace entre les boutons */
+}
+
+.pagination .page-link {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  color: #333;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.text-primary {
+  color: #007bff; /* Couleur bleue */
+}
+
+.filter-select {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 20px; /* Bordures arrondies */
+  width: 100%;
+}
+
+.filter-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Bordures arrondies */
+}

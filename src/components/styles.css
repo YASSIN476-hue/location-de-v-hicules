@@ -1,0 +1,269 @@
+/* styles.css */
+.image-uniform {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.text-primary {
+  color: #007bff; /* Couleur bleue */
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+
+.card-body .details {
+  margin-bottom: 1rem;
+}
+
+.card-body .details .detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.card-body .details .detail-item i {
+  margin-right: 0.5rem;
+  color: #007bff; /* Couleur bleue pour les icônes */
+}
+
+.card-body .details .detail-item span {
+  color: #00008B; /* Bleu foncé pour le texte */
+}
+
+.card-body button {
+  background-color: #000000;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  width: 100%;
+}
+
+/* Style pour la pagination */
+.pagination {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.page-item {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.page-item.active {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+.page-item:hover {
+  background-color: #e9ecef;
+}
+
+.page-link {
+  color: inherit;
+}
+
+/* Boutons précédents/suivants */
+.prev-btn, .next-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: #e9ecef;
+}
+
+.prev-btn.active, .next-btn.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.filter-select {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 20px; /* Bordures arrondies */
+  width: 100%;
+}
+
+.filter-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px; /* Bordures arrondies */
+}
+/* Slider */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 690px; /* Hauteur du slider */
+  overflow: hidden;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1; /* Visible par défaut */
+  transition: opacity 1s ease-in-out; /* Transition fluide */
+}
+
+/* Animation Fade-Out */
+.slider-image.fade-out {
+  opacity: 0;
+}
+
+/* Animation Fade-In */
+.slider-image.fade-in {
+  opacity: 1;
+}
+
+
+/* Overlay semi-transparent au survol */
+.slider-container:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Fond semi-transparent */
+}
+
+/* Animation Slide-Up pour le texte et le bouton */
+.slider-overlay-left h1,
+.slider-overlay-left p,
+.slider-overlay-left .btn-primary {
+  opacity: 0; /* Commence invisible */
+  transform: translateY(20px); /* Décale vers le bas */
+  animation: slideUp 1s ease-in-out forwards; /* Animation de glissement vers le haut */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slider-overlay-left {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.slider-overlay-left h1 {
+  font-size: 3rem;
+}
+
+.slider-overlay-left p {
+  font-size: 1.2rem;
+}
+
+.slider-overlay-left .btn-primary {
+  background-color: #ffffff;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Style pour le badge de réduction */
+.promotion-badge {
+  background-color: #FEE2E2; /* Orange vif */
+  color: rgb(173, 0, 0);
+  border-radius: 20px;
+  padding: 0.5rem 0.5rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.card-body .promotion-badge {
+  position: relative;
+  z-index: 1;
+}
+/* Style pour le logo */
+.logo {
+  height: 55px; /* Ajustez la hauteur selon vos besoins */
+  width: auto; /* Conserver les proportions */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-light .navbar-brand {
+  color: #000; /* Couleur du texte si nécessaire */
+}
+/* Style pour le logo dans le footer */
+.footer-logo {
+  height: 80px; /* Ajustez la hauteur selon vos besoins */
+  width: auto; /* Conserver les proportions */
+}
+/* Style pour le logo */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-light .navbar-brand {
+  color: #000; /* Couleur du texte si nécessaire */
+}
+
+/* Alignement des liens principaux */
+.navbar-nav.me-auto {
+  margin-left: 1rem; /* Espacement entre le logo et les liens */
+}
+
+/* Style pour les boutons "Se connecter" et "S'inscrire" */
+.navbar-nav.ms-auto .nav-link {
+  margin-left: 0.8rem; /* Espacement entre les boutons */
+}
+
+.navbar-nav.ms-auto .btn {
+  padding: 0.375rem 0.75rem; /* Ajuster la taille du bouton */
+  font-size: 0.875rem;
+}
+/* Style pour les boutons */
+.navbar-nav .btn {
+  background-color: #00e1ff; /* Fond noir */
+  color: white; /* Texte blanc */
+  border: none;
+  padding: 0rem 3rem;
+  border-radius: 2;
+}
+
+.navbar-nav .btn:hover {
+  background-color: #000000; /* Fond plus sombre en hover */
+}
