@@ -267,3 +267,225 @@
 .navbar-nav .btn:hover {
   background-color: #000000; /* Fond plus sombre en hover */
 }
+/* Style pour les catégories */
+.category-card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 1px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.category-card h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.category-card p {
+  margin-bottom: 2;
+  color: #007bff;
+}
+/* Style pour les offres expérimentelles */
+.offer-card {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offer-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.offer-card h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.offer-card p {
+  margin-bottom: 0;
+  color: #000000;
+}
+/* Style pour la carte */
+.map-container iframe {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Style pour les témoignages clients */
+.testimonial-slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card {
+  text-align: center;
+  max-width: 600px;
+}
+
+.testimonial-card .avatar img {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid #007bff; /* Bordure autour de l'avatar */
+}
+
+.testimonial-card .avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.testimonial-card .name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.testimonial-card .title {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+/* Style général pour la page de réservation */
+#reservation {
+  padding: 20px;
+}
+
+/* Titre principal */
+#reservation h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Sections principales */
+#reservation .section {
+  margin-bottom: 40px;
+}
+
+/* Détails du véhicule */
+#reservation .vehicle-details {
+  display: flex;
+  gap: 20px;
+}
+
+#reservation .vehicle-image {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+#reservation .vehicle-details img:hover {
+  transform: scale(1.05);
+}
+
+/* Récapitulatif */
+#reservation .summary {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Options supplémentaires */
+#reservation .options {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Informations personnelles */
+#reservation .personal-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Paiement */
+#reservation .payment {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bouton de confirmation */
+#reservation .btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#reservation .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Animation pour les sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#reservation .section {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #reservation .vehicle-details {
+    flex-direction: column;
+  }
+
+  #reservation .vehicle-image {
+    width: 100%;
+  }
+}

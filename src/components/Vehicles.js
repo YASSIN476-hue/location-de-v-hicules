@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // Pour récupérer les paramètres de l'URL
 import './styles.css'; // Importer le fichier CSS
 
 // Simuler une liste de 54 véhicules
@@ -16,450 +17,25 @@ const vehiclesData = [
     places: "5 places"
   },
   {
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
+    id: 2,
+    name: "Ferrari 488",
+    price: 1200,
+    image: "/images/ferrari-488.jpg",
+    brand: "Ferrari",
+    type: "Sportive",
     transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
-  },{
-    id: 1,
-    name: "Mercedes S-Class",
-    price: 450,
-    image: "/images/mercedes-s-class.jpg",
-    brand: "Mercedes",
-    type: "SUV",
-    transmission: "Automatique",
-    fuel: "Diesel",
-    description: "Berline de luxe, automatique, cuir",
-    places: "5 places"
+    fuel: "Essence",
+    description: "Supercar, automatique, performance",
+    places: "2 places"
   },
   // Ajoutez ici les autres véhicules jusqu'à 54
 ];
 
 function Vehicles() {
+  const location = useLocation(); // Récupérer les paramètres de l'URL
+  const queryParams = new URLSearchParams(location.search);
+  const categoryFilterFromURL = queryParams.get('category'); // Récupérer la catégorie depuis l'URL
+
   const [vehicles, setVehicles] = useState(vehiclesData);
   const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
   const [currentPage, setCurrentPage] = useState(1);
@@ -475,6 +51,10 @@ function Vehicles() {
   const [brandFilter, setBrandFilter] = useState("Toutes les marques");
   const [typeFilter, setTypeFilter] = useState("Tous les types");
   const [transmissionFilter, setTransmissionFilter] = useState("Toutes");
+
+  useEffect(() => {
+    applyFilters();
+  }, [categoryFilterFromURL]); // Appliquer le filtre lorsque la catégorie change
 
   const handlePriceFilterChange = (e) => {
     setPriceFilter(e.target.value);
@@ -498,6 +78,11 @@ function Vehicles() {
 
   const applyFilters = () => {
     let filtered = [...vehicles];
+
+    // Filtrer par catégorie si elle est présente dans l'URL
+    if (categoryFilterFromURL) {
+      filtered = filtered.filter(vehicle => vehicle.type === categoryFilterFromURL);
+    }
 
     // Filtrer par prix
     if (priceFilter === "croissant") {

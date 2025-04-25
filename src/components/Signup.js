@@ -1,27 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './auth-styles.css'; // Importer le fichier CSS spécifique
 
 function Signup() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    console.log('Nom:', name);
+    console.log('Email:', email);
+    console.log('Password:', password);
+    alert('Inscription réussie !');
+  };
+
   return (
-    <section id="signup">
-      <div className="container mt-5">
-        <h2>Inscription</h2>
-        <form>
-          <div className="form-group">
-            <label htmlFor="signup-name">Nom</label>
-            <input type="text" className="form-control" id="signup-name" placeholder="Votre nom" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="signup-email">Email</label>
-            <input type="email" className="form-control" id="signup-email" placeholder="Votre email" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="signup-password">Mot de passe</label>
-            <input type="password" className="form-control" id="signup-password" placeholder="Votre mot de passe" />
-          </div>
-          <button type="submit" className="btn btn-primary">S'inscrire</button>
-        </form>
+    <div className="auth-container">
+      <h2>Inscription</h2>
+      <form onSubmit={handleSignup}>
+        <input
+          type="text"
+          placeholder="Nom complet"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit" className="btn btn-primary">S'inscrire</button>
+      </form>
+
+      {/* Boutons sociaux */}
+      <div className="social-buttons">
+        <button className="btn-social btn-google">Google</button>
+        <button className="btn-social btn-facebook">Facebook</button>
+        <button className="btn-social btn-gmail">Gmail</button>
       </div>
-    </section>
+
+      {/* Lien vers la page de connexion */}
+      <a href="/login" className="switch-link">Déjà inscrit ? Connectez-vous ici</a>
+    </div>
   );
 }
 
