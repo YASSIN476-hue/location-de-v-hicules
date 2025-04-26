@@ -355,8 +355,8 @@
 }
 
 .testimonial-card .avatar img {
-  width: 10px;
-  height: 10px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
@@ -488,4 +488,53 @@
   #reservation .vehicle-image {
     width: 100%;
   }
+}
+/* Style pour la page de détails */
+#vehicle-details .container {
+  padding: 20px;
+}
+
+#vehicle-details img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#vehicle-details .row {
+  margin-bottom: 40px;
+}
+
+#vehicle-details h2 {
+  margin-bottom: 20px;
+}
+
+#vehicle-details p {
+  margin-bottom: 10px;
+}
+
+#vehicle-details .btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#vehicle-details .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+#vehicle-details .similar-vehicles {
+  display: flex;
+  gap: 20px;
+}
+
+#vehicle-details .similar-vehicles img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

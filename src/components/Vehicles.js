@@ -35,7 +35,6 @@ function Vehicles() {
   const location = useLocation(); // Récupérer les paramètres de l'URL
   const queryParams = new URLSearchParams(location.search);
   const categoryFilterFromURL = queryParams.get('category'); // Récupérer la catégorie depuis l'URL
-
   const [vehicles, setVehicles] = useState(vehiclesData);
   const [filteredVehicles, setFilteredVehicles] = useState(vehiclesData);
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,6 +50,8 @@ function Vehicles() {
   const [brandFilter, setBrandFilter] = useState("Toutes les marques");
   const [typeFilter, setTypeFilter] = useState("Tous les types");
   const [transmissionFilter, setTransmissionFilter] = useState("Toutes");
+  const [minPrice, setMinPrice] = useState(""); // Prix minimum
+  const [maxPrice, setMaxPrice] = useState(""); // Prix maximum
 
   useEffect(() => {
     applyFilters();
@@ -73,6 +74,16 @@ function Vehicles() {
 
   const handleTransmissionFilterChange = (e) => {
     setTransmissionFilter(e.target.value);
+    applyFilters();
+  };
+
+  const handleMinPriceChange = (e) => {
+    setMinPrice(e.target.value);
+    applyFilters();
+  };
+
+  const handleMaxPriceChange = (e) => {
+    setMaxPrice(e.target.value);
     applyFilters();
   };
 
@@ -110,6 +121,15 @@ function Vehicles() {
       filtered = filtered.filter(vehicle => vehicle.transmission === transmissionFilter);
     }
 
+    // Filtrer par intervalle de prix
+    if (minPrice && maxPrice) {
+      filtered = filtered.filter(vehicle => vehicle.price >= parseInt(minPrice) && vehicle.price <= parseInt(maxPrice));
+    } else if (minPrice) {
+      filtered = filtered.filter(vehicle => vehicle.price >= parseInt(minPrice));
+    } else if (maxPrice) {
+      filtered = filtered.filter(vehicle => vehicle.price <= parseInt(maxPrice));
+    }
+
     setFilteredVehicles(filtered);
     setCurrentPage(1); // Réinitialiser la page après chaque filtre
   };
@@ -117,16 +137,13 @@ function Vehicles() {
   // Pagination
   const totalPages = Math.ceil(filteredVehicles.length / itemsPerPage);
   const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
-
   const renderPageNumbers = () => {
     const range = [];
     const currentPageIndex = currentPage - 1;
     const maxVisibleButtons = 5; // Nombre maximal de boutons de pagination visibles
-
     for (let i = Math.max(0, currentPageIndex - 1); i <= Math.min(totalPages - 1, currentPageIndex + maxVisibleButtons - 2); i++) {
       range.push(i);
     }
-
     return range.map(number => (
       <button
         key={number}
@@ -142,7 +159,6 @@ function Vehicles() {
     <section id="vehicles">
       <div className="container mt-5">
         <h2 className="text-center text-primary">Nos Véhicules Disponibles</h2>
-
         {/* Barre de filtres */}
         <div className="row justify-content-center mb-4">
           <div className="col-md-2">
@@ -196,12 +212,29 @@ function Vehicles() {
             </select>
           </div>
           <div className="col-md-2">
+            <div className="d-flex gap-2">
+              <input
+                type="number"
+                placeholder="Prix min"
+                value={minPrice}
+                onChange={handleMinPriceChange}
+                className="form-control"
+              />
+              <input
+                type="number"
+                placeholder="Prix max"
+                value={maxPrice}
+                onChange={handleMaxPriceChange}
+                className="form-control"
+              />
+            </div>
+          </div>
+          <div className="col-md-2">
             <button onClick={applyFilters} className="btn btn-dark filter-button">
               <i className="fas fa-filter"></i> Filtrer
             </button>
           </div>
         </div>
-
         {/* Liste des véhicules */}
         <div className="row">
           {currentItems.map(vehicle => (
@@ -234,7 +267,6 @@ function Vehicles() {
             </div>
           ))}
         </div>
-
         {/* Pagination */}
         <nav aria-label="Pagination">
           <ul className="pagination justify-content-center mt-4">
