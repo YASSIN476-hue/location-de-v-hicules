@@ -111,19 +111,19 @@ function Home() {
       text: "Le service de conciergerie 24/7 est vraiment un plus. Une tranquillité d'esprit totale pendant la location.",
     },
     {
-      avatar: "/images/avatar-sophie-thomas.png",
+      avatar: "/images/avatar-pierre-dubois.p5g",
       name: "Sophie Thomas",
       title: "Consultante",
       text: "Expérience incroyable avec des véhicules de haute qualité et un service irréprochable.",
     },
     {
-      avatar: "/images/avatar-julien-rodriguez.png",
+      avatar: "/images/avatar-marie-laurent.p4g",
       name: "Julien Rodriguez",
       title: "Ingénieur",
       text: "Les véhicules sont toujours propres et bien entretenus. Service impeccable !",
     },
     {
-      avatar: "/images/avatar-lucie-martinez.png",
+      avatar: "/images/avatar-jean-martin.p7g",
       name: "Lucie Martinez",
       title: "Comptable",
       text: "Une expérience fluide et sans souci. Les véhicules sont toujours disponibles et en parfait état.",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // Pour récupérer les paramètres de l'URL
+import { useLocation, Link } from 'react-router-dom'; // Importer Link pour la redirection
 import './styles.css'; // Importer le fichier CSS
 
 // Simuler une liste de 54 véhicules
@@ -50,8 +50,6 @@ function Vehicles() {
   const [brandFilter, setBrandFilter] = useState("Toutes les marques");
   const [typeFilter, setTypeFilter] = useState("Tous les types");
   const [transmissionFilter, setTransmissionFilter] = useState("Toutes");
-  const [minPrice, setMinPrice] = useState(""); // Prix minimum
-  const [maxPrice, setMaxPrice] = useState(""); // Prix maximum
 
   useEffect(() => {
     applyFilters();
@@ -77,24 +75,12 @@ function Vehicles() {
     applyFilters();
   };
 
-  const handleMinPriceChange = (e) => {
-    setMinPrice(e.target.value);
-    applyFilters();
-  };
-
-  const handleMaxPriceChange = (e) => {
-    setMaxPrice(e.target.value);
-    applyFilters();
-  };
-
   const applyFilters = () => {
     let filtered = [...vehicles];
-
     // Filtrer par catégorie si elle est présente dans l'URL
     if (categoryFilterFromURL) {
       filtered = filtered.filter(vehicle => vehicle.type === categoryFilterFromURL);
     }
-
     // Filtrer par prix
     if (priceFilter === "croissant") {
       filtered.sort((a, b) => a.price - b.price);
@@ -105,31 +91,18 @@ function Vehicles() {
     } else if (priceFilter === "reverse-alphabetique") {
       filtered.sort((a, b) => b.name.localeCompare(a.name));
     }
-
     // Filtrer par marque
     if (brandFilter !== "Toutes les marques") {
       filtered = filtered.filter(vehicle => vehicle.brand === brandFilter);
     }
-
     // Filtrer par type
     if (typeFilter !== "Tous les types") {
       filtered = filtered.filter(vehicle => vehicle.type === typeFilter);
     }
-
     // Filtrer par transmission
     if (transmissionFilter !== "Toutes") {
       filtered = filtered.filter(vehicle => vehicle.transmission === transmissionFilter);
     }
-
-    // Filtrer par intervalle de prix
-    if (minPrice && maxPrice) {
-      filtered = filtered.filter(vehicle => vehicle.price >= parseInt(minPrice) && vehicle.price <= parseInt(maxPrice));
-    } else if (minPrice) {
-      filtered = filtered.filter(vehicle => vehicle.price >= parseInt(minPrice));
-    } else if (maxPrice) {
-      filtered = filtered.filter(vehicle => vehicle.price <= parseInt(maxPrice));
-    }
-
     setFilteredVehicles(filtered);
     setCurrentPage(1); // Réinitialiser la page après chaque filtre
   };
@@ -212,24 +185,6 @@ function Vehicles() {
             </select>
           </div>
           <div className="col-md-2">
-            <div className="d-flex gap-2">
-              <input
-                type="number"
-                placeholder="Prix min"
-                value={minPrice}
-                onChange={handleMinPriceChange}
-                className="form-control"
-              />
-              <input
-                type="number"
-                placeholder="Prix max"
-                value={maxPrice}
-                onChange={handleMaxPriceChange}
-                className="form-control"
-              />
-            </div>
-          </div>
-          <div className="col-md-2">
             <button onClick={applyFilters} className="btn btn-dark filter-button">
               <i className="fas fa-filter"></i> Filtrer
             </button>
@@ -261,7 +216,13 @@ function Vehicles() {
                       <span className="text-dark-blue">{vehicle.fuel}</span>
                     </div>
                   </div>
-                  <button className="btn btn-primary w-100">Réserver</button>
+                  <div className="d-flex gap-2 mt-3">
+                    <button className="btn btn-primary w-100">Réserver</button>
+                    {/* Bouton "Voir Détail" avec redirection */}
+                    <Link to={`/vehicle/${vehicle.id}`} className="btn btn-secondary w-100">
+                      Voir Détail
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
